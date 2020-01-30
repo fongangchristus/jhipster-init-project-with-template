@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contrat_portal" pageWidth="595" pageHeight="650" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="e2763e8a-00d3-41c2-96a8-6cfdde662e2a">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="429"/>
+	<parameter name="realPath" class="java.lang.String"/>
+	<field name="raisonSociale" class="java.lang.String"/>
+	<field name="nomResponsable" class="java.lang.String"/>
+	<field name="modePaiement" class="java.lang.String"/>
+	<field name="packageChoisi" class="java.lang.String"/>
+	<field name="emailResponsable" class="java.lang.String"/>
+	<field name="telephoneResponsable" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="91" splitType="Stretch">
+			<staticText>
+				<reportElement x="219" y="71" width="100" height="20" uuid="04ce97d3-3b09-4bed-adb8-c96c20ebd2a3"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Payment Gateway]]></text>
+			</staticText>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement isPrintRepeatedValues="false" x="166" y="0" width="208" height="55" uuid="e4fa68e2-2f05-47a8-89cd-5b3609eb5f65"/>
+				<imageExpression><![CDATA[$P{realPath}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="132" y="0" width="315" height="27" uuid="c38b7558-a36e-495c-ad29-229693be75a6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONTRAT DE PRESTATION DE SERVICES]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="490" splitType="Stretch">
+			<staticText>
+				<reportElement x="42" y="16" width="110" height="18" uuid="304f0895-4efc-4cdd-b074-31a2b236160d"/>
+				<text><![CDATA[Entre les soussignés :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="34" width="53" height="20" uuid="2292c06c-79b2-4985-a2b5-547106348d4c"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[La société ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="236" y="34" width="100" height="20" uuid="ee6ed349-15ad-4b0b-86a3-7dba3299a43b"/>
+				<text><![CDATA[Représentée par M. ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="95" y="34" width="141" height="20" uuid="aa374b5b-da95-421a-9bfa-d4b5552d0994"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{raisonSociale}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="336" y="34" width="169" height="20" uuid="1cd652b6-3e8b-4ae8-a0ad-7c4b1a9f9149"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomResponsable}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="42" y="54" width="159" height="20" uuid="e90fe47d-0147-4ade-89d3-b72228f090c2"/>
+				<text><![CDATA[ci-après désignée « Le Client »,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="74" width="100" height="20" uuid="6f7cee91-ec4b-4d9c-8197-bb28871aa9d4"/>
+				<text><![CDATA[d'une part,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="94" width="100" height="20" uuid="bf78bd67-68b9-479d-bdea-9202dd7a5b50"/>
+				<text><![CDATA[et]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="114" width="53" height="20" uuid="a9fd98b5-28f0-46a2-b123-b471bfa27e20"/>
+				<text><![CDATA[La société]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="114" width="100" height="20" uuid="88b0be12-6029-4504-bb5b-fd6843d1abce"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Payment Gateway]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="195" y="114" width="79" height="20" uuid="a37273fb-ba88-490d-a8e4-2a490c2952b8"/>
+				<text><![CDATA[représentée par ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="134" width="353" height="20" uuid="3ae7660d-1075-4dd8-a353-2632a87a0de3"/>
+				<text><![CDATA[ci-après dénommée « le Prestataire de services » ou « le Prestataire »,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="154" width="100" height="20" uuid="121acfb4-130d-45a0-b183-28ed4ac388c2"/>
+				<text><![CDATA[d'autre part,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="174" width="143" height="20" uuid="0facc318-0346-4e99-8034-72a73ab5250e"/>
+				<text><![CDATA[il a été convenu ce qui suit :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="339" y="470" width="35" height="20" uuid="07566853-46f3-4135-9e9c-f7fb6fd56790"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Fait le ]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="374" y="470" width="99" height="20" uuid="15bbba21-f011-484b-bb2f-038b0a3c7279"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="473" y="470" width="16" height="20" uuid="410d8ed5-0a1e-4fe0-ac26-6bfbf7317202"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[à]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="194" width="167" height="20" uuid="0ed1407e-3cf4-4e22-b450-f4036b1973d4"/>
+				<text><![CDATA[- Mode de paiements sélectionnés :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="214" width="167" height="20" uuid="db2f285d-71ca-4ed2-b6d7-a07d50c803a1"/>
+				<text><![CDATA[- Package sélectionné :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="219" y="194" width="317" height="20" uuid="dcf56853-c6e0-4384-b9fa-be3f1ebbc674"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{modePaiement}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="219" y="214" width="317" height="20" uuid="3bab5837-9eca-4270-bf06-7c9b46194cfe"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{packageChoisi}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="85" y="398" width="100" height="20" uuid="ac31df99-b8ec-4259-a36d-b91dd94ee160"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Signature prestataire]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="374" y="398" width="100" height="20" uuid="0c5df189-07bc-4d14-809e-b2f06153cbcc"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Signature client]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="490" y="470" width="41" height="20" uuid="356ffe57-4978-4797-b92a-cdeaf25b163b"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Douala]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="114" width="100" height="20" uuid="698836d8-6855-43c1-81b0-e47bdf7aab09"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ITGStore S.A]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="244" width="210" height="20" uuid="69f0303c-21bb-46c0-b3ce-fa652f502782"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Informations de contact du client:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="279" width="135" height="20" uuid="d5f148fa-0ca2-4e97-9084-c287ca4a0b03"/>
+				<text><![CDATA[Nom Responsable :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="299" width="135" height="20" uuid="c3248d84-001a-4198-9dbb-264a96b51411"/>
+				<text><![CDATA[Email responsable :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="319" width="135" height="20" uuid="7137419e-8b79-4e96-b00d-9a8ae81b1db9"/>
+				<text><![CDATA[Téléphone responsable :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="177" y="279" width="299" height="20" uuid="cb19f648-345c-49c9-a9c3-8ed92fd0afa5"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomResponsable}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="177" y="299" width="299" height="20" uuid="41f634a2-5cc8-4168-ba5c-4da25bc9bf3b"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{emailResponsable}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="177" y="319" width="299" height="20" uuid="2fa6d5dd-7cfe-42eb-b069-5a49fa5abb8d"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telephoneResponsable}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="36" y="418" width="200" height="20" uuid="8a633e59-98f0-46e1-bb70-94fff995ed79"/>
+				<text><![CDATA[précéde de la mention lue et approuveé]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="336" y="418" width="200" height="20" uuid="151d884e-07ab-4b78-bbf7-1f6b97552d71"/>
+				<text><![CDATA[précéde de la mention lue et approuveé]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

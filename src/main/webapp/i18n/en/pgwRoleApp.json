@@ -1,0 +1,23 @@
+
+{
+    "pgwitgApp": {
+        "pgwRoleApp" : {
+            "home": {
+                "title": "Pgw Role Apps",
+                "createLabel": "Create a new Pgw Role App",
+                "createOrEditLabel": "Create or edit a Pgw Role App"
+            },
+            "created": "A new Pgw Role App is created with identifier {{ param }}",
+            "updated": "A Pgw Role App is updated with identifier {{ param }}",
+            "deleted": "A Pgw Role App is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Pgw Role App {{ id }}?"
+            },
+            "detail": {
+                "title": "Pgw Role App"
+            },
+            "libelle": "Label",
+            "description": "Description"
+        }
+    }
+}

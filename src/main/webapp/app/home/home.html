@@ -1,0 +1,165 @@
+<div ng-cloak>
+	<!-- First -->
+	<div class="row top_tiles">
+              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12" has-any-authority="ROLE_ADMIN,DASH_USERS">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-users"></i></div>
+                  <div class="count">{{vm.usersCount}}</div>
+                  <h3>{{'users' | translate}}</h3>
+                  <p>{{'nbre_users' | translate}}.</p>
+                </div>
+              </div>
+              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12" has-any-authority="ROLE_ADMIN,DASH_PACKAGES">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-file-archive-o"></i></div>
+                  <div class="count">{{vm.packageCount}}</div>
+                  <h3>{{'packages' | translate}}</h3>
+                  <p>{{'nbre_package' | translate}}.</p>
+                </div>
+              </div>
+              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12" has-any-authority="ROLE_ADMIN,DASH_MARCHANDS">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-road"></i></div>
+                  <div class="count">{{vm.portalCount}}</div>
+                  <h3>{{'marchands' | translate}}</h3>
+                  <p>{{'nbre_marchand' | translate}}.</p>
+                </div>
+              </div>
+              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12" has-any-authority="ROLE_ADMIN,DASH_OPERATIONS">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-sort-amount-desc"></i></div>
+                  <div class="count">{{vm.operationCount}}</div>
+                  <h3>{{'operations' | translate}}</h3>
+                  <p>{{'nbre_operation' | translate}}.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Middle -->
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12" has-any-authority="ROLE_ADMIN,DASH_GRAPH_OPERATIONS_JOUR">
+                <div class="dashboard_graph x_panel">
+                  <div class="row x_title">
+                    <div class="col-md-6">
+                      <h3>{{'resume_op' | translate}} : <small>{{'progress_jour' | translate}}</small></h3>
+                    </div>
+                  </div>
+                  <div class="x_content">
+                    <div class="demo-container">
+                      <div id="chart_plot_03" class="demo-placeholder">
+                      	<canvas id="line" class="chart chart-line" chart-data="vm.data"
+                        chart-labels="vm.labels" chart-series="vm.series" chart-options="vm.options"
+                        chart-dataset-override="vm.datasetOverride" chart-click="vm.onClick">
+                        </canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- last part -->
+
+            <div class="row">
+
+
+            <div class="col-md-7 col-sm-4 col-xs-12" has-any-authority="ROLE_ADMIN,DASH_GRAPH_OPERATIONS_MOIS">
+              <div class="x_panel tile">
+                <div class="x_title">
+                  <h5>{{'resume_annuel' | translate}} : <small>{{'todos' | translate}} 2019</small></h5>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <h4>{{'total_op' | translate}}</h4>
+                 	<canvas id="line" class="chart chart-bar" chart-data="vm.dataMonths"
+                                            chart-labels="vm.labelsMonths" chart-series="vm.series" chart-options="vm.options"
+                                            chart-dataset-override="vm.datasetOverride" chart-click="vm.onClick">
+                                            </canvas>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-5 col-sm-4 col-xs-12" has-any-authority="ROLE_ADMIN,DASH_TABLE_DERNIERS_MARCHANDS">
+              <div class="x_panel tile">
+                <div class="x_title">
+                  <h5>{{'derniers_8' | translate}}.</h5>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="table-responsive">
+                            <table class="jh-table table table-striped jambo_table">
+                                <thead>
+                                    <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                                        <th jh-sort-by="id"><span>{{'raison_sociale' | translate}}</span> <span class="glyphicon glyphicon-sort"></span></th>
+                                        <th jh-sort-by="package"><span>{{'package' | translate}}</span> <span class="glyphicon glyphicon-sort"></span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="pgwPortal in vm.pgwPortals track by pgwPortal.id">
+                                        <td>{{pgwPortal.libelle}}</td>
+                                        <td>{{pgwPortal.pgwPackageLibelle}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!--<div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="x_panel tile fixed_height_320">
+                <div class="x_title">
+                  <h2>Quick Settings</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Settings 1</a>
+                        </li>
+                        <li><a href="#">Settings 2</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <div class="dashboard-widget-content">
+                    <ul class="quick-list">
+                      <li><i class="fa fa-calendar-o"></i><a href="#">Settings</a>
+                      </li>
+                      <li><i class="fa fa-bars"></i><a href="#">Subscription</a>
+                      </li>
+                      <li><i class="fa fa-bar-chart"></i><a href="#">Auto Renewal</a> </li>
+                      <li><i class="fa fa-line-chart"></i><a href="#">Achievements</a>
+                      </li>
+                      <li><i class="fa fa-bar-chart"></i><a href="#">Auto Renewal</a> </li>
+                      <li><i class="fa fa-line-chart"></i><a href="#">Achievements</a>
+                      </li>
+                      <li><i class="fa fa-area-chart"></i><a href="#">Logout</a>
+                      </li>
+                    </ul>
+
+                    <div class="sidebar-widget">
+                        <h4>Profile Completion</h4>
+                        <canvas width="150" height="80" id="chart_gauge_01" class="" style="width: 160px; height: 100px;"></canvas>
+                        <div class="goal-wrapper">
+                          <span id="gauge-text" class="gauge-value pull-left">0</span>
+                          <span class="gauge-value pull-left">%</span>
+                          <span id="goal-text" class="goal-value pull-right">100%</span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>-->
+
+          </div>
+
+</div>

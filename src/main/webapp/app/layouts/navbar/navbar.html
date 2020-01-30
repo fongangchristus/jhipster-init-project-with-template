@@ -1,0 +1,359 @@
+<nav class="navbar navbar-default" role="navigation">
+	<div class="nav toggle" ng-click="vm.toggleNavbar()">
+		<a id="menu_toggle"><i class="fa fa-bars"></i></a>
+	</div>
+	<div class="container">
+		<div class="navbar-collapse" uib-collapse="vm.isNavbarCollapsed"
+			ng-switch="vm.isAuthenticated()">
+			<ul class="nav navbar-nav navbar-right">
+
+				<!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
+
+				<li ng-class="{active: vm.$state.includes('account')}" uib-dropdown
+					class="dropdown pointer"><a class="dropdown-toggle"
+					uib-dropdown-toggle href="" id="account-menu"> <span> <span
+							class="glyphicon glyphicon-user"></span> <span class="hidden-sm"
+							data-translate="global.menu.account.main"> Account </span> <b
+							class="caret"></b>
+					</span>
+				</a>
+					<ul class="dropdown-menu" uib-dropdown-menu>
+						<li ui-sref-active="active" ng-switch-when="true"><a
+							ui-sref="settings" ng-click="vm.collapseNavbar()"> <span
+								class="glyphicon glyphicon-wrench"></span>&nbsp; <span
+								data-translate="global.menu.account.settings">Settings</span>
+						</a></li>
+						<li ui-sref-active="active" ng-switch-when="true"><a
+							ui-sref="password" ng-click="vm.collapseNavbar()"> <span
+								class="glyphicon glyphicon-lock"></span>&nbsp; <span
+								data-translate="global.menu.account.password">Password</span>
+						</a></li>
+						<li ui-sref-active="active" ng-switch-when="true"><a
+							ui-sref="sessions" ng-click="vm.collapseNavbar()"> <span
+								class="glyphicon glyphicon-cloud"></span>&nbsp; <span
+								data-translate="global.menu.account.sessions">Sessions</span>
+						</a></li>
+						<li ui-sref-active="active" ng-switch-when="true"><a href=""
+							ng-click="vm.logout()" id="logout"> <span
+								class="glyphicon glyphicon-log-out"></span>&nbsp; <span
+								data-translate="global.menu.account.logout">Sign out</span>
+						</a></li>
+						<li ui-sref-active="active" ng-switch-when="false"><a href=""
+							ng-click="vm.login()" id="login"> <span
+								class="glyphicon glyphicon-log-in"></span>&nbsp; <span
+								data-translate="global.menu.account.login">Sign in</span>
+						</a></li>
+						<li ui-sref-active="active" ng-switch-when="false"><a
+							ui-sref="register" ng-click="vm.collapseNavbar()"> <span
+								class="glyphicon glyphicon-plus-sign"></span>&nbsp; <span
+								data-translate="global.menu.account.register">Register</span>
+						</a></li>
+					</ul></li>
+				<li ui-sref-active="active" uib-dropdown class="dropdown pointer"
+					ng-controller="JhiLanguageController as languageVm"><a
+					class="dropdown-toggle" uib-dropdown-toggle href=""
+					ng-if="languageVm.languages.length > 1"> <span> <span
+							class="glyphicon glyphicon-flag"></span> <span class="hidden-sm"
+							data-translate="global.menu.language">Language</span> <b
+							class="caret"></b>
+					</span>
+				</a>
+					<ul class="dropdown-menu" uib-dropdown-menu
+						ng-if="languageVm.languages.length > 1">
+						<li active-menu="{{language}}"
+							ng-repeat="language in languageVm.languages"><a href=""
+							ng-click="languageVm.changeLanguage(language);vm.collapseNavbar();">{{language
+								| findLanguageFromKey}}</a></li>
+					</ul></li>
+					
+					<!--  
+				<li ng-class="{active: vm.$state.includes('entity')}" uib-dropdown
+					class="dropdown pointer"><a class="dropdown-toggle"
+					uib-dropdown-toggle href="" id="entity-menu"> <span> <span
+							class="glyphicon glyphicon-user"></span> <span class="hidden-sm"
+							data-translate="global.menu.entities.main"> Account </span> <b
+							class="caret"></b>
+					</span>
+				</a>
+					<ul class="dropdown-menu" uib-dropdown-menu>
+
+
+
+
+						<li ui-sref-active="active"><a ui-sref="wallet-pgw"
+							ng-click="vm.collapseNavbar()"> <span
+								class="glyphicon glyphicon-asterisk"></span>&nbsp; <span
+								data-translate="global.menu.entities.walletPgw">Wallet
+									Pgw</span>
+						</a></li>
+						<li ui-sref-active="active"><a ui-sref="tx-child-pgw"
+							ng-click="vm.collapseNavbar()"> <span
+								class="glyphicon glyphicon-asterisk"></span>&nbsp; <span
+								data-translate="global.menu.entities.txChildPgw">Tx Child
+									Pgw</span>
+						</a></li>
+						<li ui-sref-active="active"><a ui-sref="tx-pgw"
+							ng-click="vm.collapseNavbar()"> <span
+								class="glyphicon glyphicon-asterisk"></span>&nbsp; <span
+								data-translate="global.menu.entities.txPgw">Tx Pgw</span>
+						</a></li>
+						<li ui-sref-active="active"><a ui-sref="produit-pgw"
+							ng-click="vm.collapseNavbar()"> <span
+								class="glyphicon glyphicon-asterisk"></span>&nbsp; <span
+								data-translate="global.menu.entities.produitPgw">Produit
+									Pgw</span>
+						</a></li>
+						<li ui-sref-active="active"><a ui-sref="portail-produit-pgw"
+							ng-click="vm.collapseNavbar()"> <span
+								class="glyphicon glyphicon-asterisk"></span>&nbsp; <span
+								data-translate="global.menu.entities.portailProduitPgw">Portail
+									Produit Pgw</span>
+						</a></li>
+						<li ui-sref-active="active"><a ui-sref="portail-pgw"
+							ng-click="vm.collapseNavbar()"> <span
+								class="glyphicon glyphicon-asterisk"></span>&nbsp; <span
+								data-translate="global.menu.entities.portailPgw">Portail
+									Pgw</span>
+						</a></li>
+						<li ui-sref-active="active"><a ui-sref="operation-child-pgw"
+							ng-click="vm.collapseNavbar()"> <span
+								class="glyphicon glyphicon-asterisk"></span>&nbsp; <span
+								data-translate="global.menu.entities.operationChildPgw">Operation
+									Child Pgw</span>
+						</a></li>
+						<li ui-sref-active="active"><a ui-sref="operation-pgw"
+							ng-click="vm.collapseNavbar()"> <span
+								class="glyphicon glyphicon-asterisk"></span>&nbsp; <span
+								data-translate="global.menu.entities.operationPgw">Operation
+									Pgw</span>
+						</a></li>
+						<li ui-sref-active="active"><a ui-sref="integrateur-pgw"
+							ng-click="vm.collapseNavbar()"> <span
+								class="glyphicon glyphicon-asterisk"></span>&nbsp; <span
+								data-translate="global.menu.entities.integrateurPgw">Integrateur
+									Pgw</span>
+						</a></li>
+						<li ui-sref-active="active"><a ui-sref="compte-pgw"
+							ng-click="vm.collapseNavbar()"> <span
+								class="glyphicon glyphicon-asterisk"></span>&nbsp; <span
+								data-translate="global.menu.entities.comptePgw">Compte
+									Pgw</span>
+						</a></li>
+						<li ui-sref-active="active"><a ui-sref="client-pgw"
+							ng-click="vm.collapseNavbar()"> <span
+								class="glyphicon glyphicon-asterisk"></span>&nbsp; <span
+								data-translate="global.menu.entities.clientPgw">Client
+									Pgw</span>
+						</a></li>
+						<li ui-sref-active="active"><a ui-sref="seq-table"
+							ng-click="vm.collapseNavbar()"> <span
+								class="glyphicon glyphicon-asterisk"></span>&nbsp; <span
+								data-translate="global.menu.entities.seqTable">Seq Table</span>
+						</a></li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-client" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwClient">Pgw Client</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-portal-article" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwPortalArticle">Pgw Portal Article</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-facture" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwFacture">Pgw Facture</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-facture-item" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwFactureItem">Pgw Facture Item</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-terminal" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwTerminal">Pgw Terminal</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-user-portal" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwUserPortal">Pgw User Portal</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-commission" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwCommission">Pgw Commission</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-commission-config" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwCommissionConfig">Pgw Commission Config</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-commission-config-hist" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwCommissionConfigHist">Pgw Commission Config Hist</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-tx-item" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwTxItem">Pgw Tx Item</span>
+                                </a>
+                            </li>
+
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-compte" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwCompte">Pgw Compte</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-compte-config" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwCompteConfig">Pgw Compte Config</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-pay-mode-config" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwPayModeConfig">Pgw Pay Mode Config</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-pay-mode" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwPayMode">Pgw Pay Mode</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-ecriture" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwEcriture">Pgw Ecriture</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-reversement" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwReversement">Pgw Reversement</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-retro-commission" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwRetroCommission">Pgw Retro Commission</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-retro-commission-config" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwRetroCommissionConfig">Pgw Retro Commission Config</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-retro-commission-config-hist" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwRetroCommissionConfigHist">Pgw Retro Commission Config Hist</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-pay-mode-match" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwPayModeMatch">Pgw Pay Mode Match</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-portail-info" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwPortailInfo">Pgw Portail Info</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-package" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwPackage">Pgw Package</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-detail-package" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwDetailPackage">Pgw Detail Package</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-formule" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwFormule">Pgw Formule</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-portal" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwPortal">Pgw Portal</span>
+                                </a>
+                            </li>
+
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-secteur-activite" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwSecteurActivite">Pgw Secteur Activite</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="seq-gen" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.seqGen">Seq Gen</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-role-app" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwRoleApp">Pgw Role App</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-marque-terminal" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwMarqueTerminal">Pgw Marque Terminal</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pgw-modele-terminal" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pgwModeleTerminal">Pgw Modele Terminal</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="pays" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.pays">Pays</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="forme-juridique" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.formeJuridique">Forme Juridique</span>
+                                </a>
+                            </li>
+<li ui-sref-active="active">
+                                <a ui-sref="acte" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.acte">Acte</span>
+                                </a>
+                            </li>
+						<!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here 
+					</ul></li>-->
+
+			</ul>
+		</div>
+	</div>
+</nav>

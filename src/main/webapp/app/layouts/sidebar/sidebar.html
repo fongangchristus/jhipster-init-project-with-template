@@ -1,0 +1,157 @@
+<div class=" nav_title" style="border: 0;">
+    <a href="index.html" class="site_title">
+        <!--<img style="width: 45px;height: 45px;border-radius: 2px" src="content/images/logo.png"/>-->
+        <!-- <i class="fa fa-crosshairs"></i> -->
+        <span> IP TV Manager </span>
+    </a>
+</div>
+
+<div class="clearfix"></div>
+
+<!-- menu profile quick info -->
+<div class="profile clearfix">
+    <div class="profile_pic">
+        <img src="content/images/user.png" alt="..."
+             class="img-circle profile_img">
+    </div>
+    <div class="profile_info">
+        <span data-translate="global.welcome">Welcome,</span>
+        <h2>{{vm.account.firstName}}</h2>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<!-- /menu profile quick info -->
+<br>
+<br>
+
+
+<!-- sidebar menu -->
+<div id="sidebar-menu" ui-view="sidebar" ng-cloak
+     class="main_menu_side hidden-print main_menu">
+
+    <div class="navbar-collapse" uib-collapse="vm.isNavbarCollapsed"
+         ng-switch="vm.isAuthenticated()">
+        <div class="menu_section">
+            <h3 data-translate="global.partieGenerale">General</h3>
+            <ul class="nav side-menu">
+                <li ui-sref-active="active">
+                	<a ui-sref="home"  ng-click="vm.collapseNavbar()"> 
+                		<i class="fa fa-home"></i> 
+                		<span class="hidden-sm" data-translate="global.menu.home">Home</span>
+                	</a>
+                </li>
+                
+                <li ui-sref-active="active">
+                    <a ui-sref="acte" ng-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                        <span data-translate="global.menu.entities.acte">Acte</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="menu_section"
+             has-any-authority="ROLE_ADMIN,ACT_PACKAGE,ACT_MODE_PAIEMENT,ACT_SERVICE_PAIEMENT,ACT_COMPTE,ACT_RETROCOMMISSION_CONFIG,ACT_USERS,ACT_ENTITY_AUDITS,ACT_AUDITS,ACT_LOG,ACT_API,ACT_SECTEUR_ACTIVITE,ACT_CONF,ACT_METRICS,ACT_DIAGS">
+            <h3>Configuration</h3>
+            <ul class="nav side-menu">
+               <li ng-class="{active: vm.$state.includes('admin')
+                         || vm.$state.includes('user-management')
+                         || vm.$state.includes('pgw-role-app')
+                         || vm.$state.includes('jhi-metrics')
+                         || vm.$state.includes('jhi-health')
+                         || vm.$state.includes('jhi-configuration')
+                         || vm.$state.includes('audits')
+                         || vm.$state.includes('logs')
+                         || vm.$state.includes('docs')
+                         || vm.$state.includes('entity-audit')}"
+                    ng-switch-when="true"
+                    has-any-authority="ROLE_ADMIN,ACT_USERS,ACT_ENTITY_AUDITS,ACT_AUDITS,ACT_LOG,ACT_API,ACT_CONF,ACT_METRICS,ACT_DIAGS" class="pointer">
+                    <a ng-click="vm.menuClick($event)" id="admin-menu"> <span>
+							<i class="fa fa-user-secret"></i> <span class="hidden-sm"
+                                                                    data-translate="global.menu.admin.main">Administration</span> <span
+                        class="fa fa-chevron-down"></span>
+					</span>
+                    </a>
+                    <ul class="nav child_menu"
+                        ng-class="{showMenuChild: vm.$state.includes('admin')
+                         || vm.$state.includes('user-management')
+                         || vm.$state.includes('pgw-role-app')
+                         || vm.$state.includes('jhi-metrics')
+                         || vm.$state.includes('jhi-health')
+                         || vm.$state.includes('jhi-configuration')
+                         || vm.$state.includes('audits')
+                         || vm.$state.includes('logs')
+                         || vm.$state.includes('docs')
+                         || vm.$state.includes('entity-audit')}">
+                        <li ui-sref-active="active" has-any-authority="ROLE_ADMIN,ACT_USERS"><a ui-sref="user-management"
+                                                       ng-click="vm.collapseNavbar()"> <span
+                            class="glyphicon glyphicon-user"></span>&nbsp; <span
+                            data-translate="global.menu.admin.userManagement">User
+									management</span>
+                        </a></li>
+                        <li ui-sref-active="active" has-any-authority="ROLE_ADMIN,ACT_ROLE_APP">
+                            <a ui-sref="pgw-role-app" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-book"></span>&nbsp;
+                                <span data-translate="global.menu.entities.pgwRoleApp">Pgw Role App</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active" has-any-authority="ROLE_ADMIN,ACT_METRICS">
+                            <a ui-sref="jhi-metrics" ng-click="vm.collapseNavbar()"> <span
+                            class="glyphicon glyphicon-dashboard"></span>&nbsp; <span
+                            data-translate="global.menu.admin.metrics">Metrics</span>
+                        </a></li>
+                        <li ui-sref-active="active" has-any-authority="ROLE_ADMIN,ACT_DIAGS"><a ui-sref="jhi-health"
+                                                       ng-click="vm.collapseNavbar()"> <span
+                            class="glyphicon glyphicon-heart"></span>&nbsp; <span
+                            data-translate="global.menu.admin.health">Health</span>
+                        </a></li>
+                        <li ui-sref-active="active" has-any-authority="ROLE_ADMIN,ACT_CONF"><a ui-sref="jhi-configuration"
+                                                       ng-click="vm.collapseNavbar()"> <span
+                            class="glyphicon glyphicon-list-alt"></span>&nbsp; <span
+                            data-translate="global.menu.admin.configuration">Configuration</span>
+                        </a></li>
+                        <li ui-sref-active="active" has-any-authority="ROLE_ADMIN,ACT_AUDITS"><a ui-sref="audits"
+                                                       ng-click="vm.collapseNavbar()"> <span
+                            class="glyphicon glyphicon-bell"></span>&nbsp; <span
+                            data-translate="global.menu.admin.audits">Audits</span>
+                        </a></li>
+                        <li ui-sref-active="active" has-any-authority="ROLE_ADMIN,ACT_LOG"><a ui-sref="logs"
+                                                       ng-click="vm.collapseNavbar()"> <span
+                            class="glyphicon glyphicon-tasks"></span>&nbsp; <span
+                            data-translate="global.menu.admin.logs">Logs</span>
+                        </a></li>
+                        <li ng-show="vm.swaggerEnabled" ui-sref-active="active" has-any-authority="ROLE_ADMIN,ACT_API"><a
+                            ui-sref="docs" ng-click="vm.collapseNavbar()"> <span
+                            class="glyphicon glyphicon-book"></span>&nbsp; <span
+                            data-translate="global.menu.admin.apidocs">API</span>
+                        </a></li>
+                        <li ui-sref-active="active" has-any-authority="ROLE_ADMIN,ACT_ENTITY_AUDITS"><a
+                            ui-sref="entity-audit" ng-click="vm.collapseNavbar()"> <span
+                            class="glyphicon glyphicon-book"></span>&nbsp; <span
+                            data-translate="global.menu.admin.entity-audit">Entity-audit</span>
+                        </a></li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- /sidebar menu -->
+
+<!-- /menu footer buttons -->
+<div class="sidebar-footer hidden-small">
+    <a data-toggle="tooltip" data-placement="top" title="Settings"> <span
+        class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+    </a> <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+    <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+</a> <a data-toggle="tooltip" data-placement="top" title="Lock"> <span
+    class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+</a> <a data-toggle="tooltip" data-placement="top" title="Logout"
+        ng-click="vm.logout()"> <span class="glyphicon glyphicon-off"
+                                      aria-hidden="true"></span>
+</a>
+</div>

@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span data-translate="pgwitgApp.pgwRoleApp.detail.title">Pgw Role App</span> {{vm.pgwRoleApp.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <div class="row">
+        <div class="col-md-4">
+            <dl class="dl-horizontal jh-entity-details">
+                <dt><span data-translate="pgwitgApp.pgwRoleApp.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{vm.pgwRoleApp.libelle}}</span>
+                </dd>
+                <dt><span data-translate="pgwitgApp.pgwRoleApp.description">Description</span></dt>
+                <dd>
+                    <span>{{vm.pgwRoleApp.description}}</span>
+                </dd>
+                <dt><span>Permissions</span></dt>
+                <dd>
+                    <div ng-repeat="permission in vm.pgwRoleApp.permissions">
+                        <span class="label label-info">{{ permission }}</span>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+        <div class="col-md-8">
+            <span class="h4">Utilisateurs <strong>"{{vm.pgwRoleApp.libelle}}"</strong></span>
+            <div>
+                <ol>
+                    <li ng-repeat="user in vm.users">
+                        <a href="javascript:;"><span uib-tooltip="{{user.firstName}}">{{user.login}} - {{user.email}}</span></a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="pgw-role-app-detail.edit({id:vm.pgwRoleApp.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+	<include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false" />
+	<include file="config/liquibase/changelog/20190104115954_added_entity_SeqGen.xml" relativeToChangelogFile="false"/>
+	<include file="config/liquibase/changelog/20181226115625_added_entity_EntityAuditEvent.xml" relativeToChangelogFile="false"  />
+	<include file="config/liquibase/changelog/20190107140456_added_entity_PgwRoleApp.xml" relativeToChangelogFile="false"  />
+	<include file="config/liquibase/changelog/20190410164030_added_relation_RoleAuthotity.xml" relativeToChangelogFile="false"  />
+	<include file="config/liquibase/changelog/20190410172104_added_entity_Acte.xml" relativeToChangelogFile="false"  />
+	
+</databaseChangeLog>

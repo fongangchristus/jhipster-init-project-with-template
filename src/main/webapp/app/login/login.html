@@ -1,0 +1,44 @@
+
+
+	<div class="container row" style="padding-top: 50px; display: flex; flex-direction: column; justify-content: center; align-items: center">
+		<div class="col-sm-4 form-login-header">
+           <!-- <img src="content/images/logo.png" height="100" alt="Logo">-->
+			<h2>IP TV Manager</h2>
+            <!--<small>Connexion avec votre nom d'utilisateur et mot de passe.</small>-->
+		</div>
+		<div class="col-sm-4">
+			<div class="alert alert-danger" ng-show="vm.authenticationError"
+				data-translate="login.messages.error.authentication">
+				<strong>Failed to sign in!</strong> Please check your credentials
+				and try again.
+			</div>
+		</div>
+		<div class="col-sm-4 form-login" >
+			<form class="form" role="form" ng-submit="vm.login($event)">
+				<div class="form-group">
+					<label for="username" data-translate="global.form.username">Login</label>
+					<input type="text" class="form-control" id="username"
+						placeholder="{{'global.form.username.placeholder' | translate}}"
+						ng-model="vm.username">
+				</div>
+				<div class="form-group">
+					<label for="password" data-translate="login.form.password">Password</label>
+					<input type="password" class="form-control" id="password"
+						placeholder="{{'login.form.password.placeholder' | translate}}"
+						ng-model="vm.password">
+				</div>
+				<div class="form-group">
+                    <button type="submit" class="btn btn-primary pull-right" style="margin-bottom: 3px"
+                            data-translate="login.form.button">Sign in</button>
+				</div>
+
+			</form>
+			<p></p>
+			<div class="alert alert-warning">
+				<a class="alert-link" href="javascript:;" ng-click="vm.requestResetPassword()"
+					data-translate="login.password.forgot">Did you forget your
+					password?</a>
+			</div>
+		</div>
+	</div>
+

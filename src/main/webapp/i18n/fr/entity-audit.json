@@ -1,0 +1,42 @@
+{
+    "entityAudit": {
+        "home": {
+            "title": "Entités auditées",
+            "filter": "Filtre",
+            "entityOrTable": "Entité/Table",
+            "limitTo": "Limité à",
+            "loadChangeList": "Charger la liste de changement"
+        },
+        "result": {
+            "showInfo": "Derniers <strong>{{ limit }}</strong> changements pour <strong>{{ entity }}</strong>",
+            "searchFieldLabel": "Filtre :",
+            "globalFilter": "Filtre global",
+            "entityIdFilter": "ID de l'entité à filtrer",
+            "tableHeader": {
+                "entityId": "Id de l'entité",
+                "action": "Action",
+                "version": "Version",
+                "value": "Valeur",
+                "modifiedDate": "Date de modification",
+                "modifiedBy": "Modifié par"
+            },
+            "tableBody": {
+                "field": "Champ",
+                "value": "Valeur",
+                "viewDetails": "Afficher les détails Audit Changement"
+            },
+            "noDataFound": "Pas d'information trouvée pour ces filtres",
+            "firstAuditEntry": "Il n'ya aucune version antérieure disponible pour cette entité.\nCeci est la première piste d'audit enregistrée pour cet objet."
+        },
+        "detail": {
+            "close": "Fermer",
+            "title": "Details de l'audit ",
+            "action": "L'action {{action}} a été exécutée sur les données ci-dessous",
+            "old": "Ancien/Valeur retirée",
+            "new": "Nouveau/Valeur ajoutée",
+            "changedFields": "Champs modifiés ",
+            "allFields": "Tous les champs",
+            "done": "Fait"
+        }
+    }
+}

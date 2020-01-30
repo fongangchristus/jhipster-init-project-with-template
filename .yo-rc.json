@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.itgstore.tierspayant",
+      "nativeLanguage": "fr"
+    },
+    "jhipsterVersion": "4.14.2",
+    "baseName": "tierspayant",
+    "packageName": "com.itgstore.tierspayant",
+    "packageFolder": "com/itgstore/tierspayant",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSocialSignIn": false,
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "1c7568ff2944a7beca2977165eb662b22f62aa09",
+    "clientFramework": "angular1",
+    "useSass": false,
+    "clientPackageManager": "yarn",
+    "applicationType": "monolith",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "enableTranslation": true,
+    "nativeLanguage": "fr",
+    "languages": [
+      "fr",
+      "en"
+    ]
+  },
+  "generator-jhipster-entity-audit": {
+    "auditFramework": "custom"
+  }
+}

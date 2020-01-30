@@ -1,0 +1,23 @@
+
+{
+    "pgwitgApp": {
+        "pgwRoleApp" : {
+            "home": {
+                "title": "Rôle Application",
+                "createLabel": "Créer un nouveau Rôle ",
+                "createOrEditLabel": "Créer ou éditer un Rôle"
+            },
+            "created": "Un nouveau Rôle a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Rôle avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Rôle avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Êtes-vous certain de vouloir supprimer le Rôle {{ id }} ?"
+            },
+            "detail": {
+                "title": "Rôle"
+            },
+            "libelle": "Libellé",
+            "description": "Description"
+        }
+    }
+}

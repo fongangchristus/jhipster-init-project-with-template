@@ -1,0 +1,16 @@
+.navbar-collapse {
+	padding-right: 1px;
+	padding-left: 1px;
+}
+
+.nav.child_menu.showMenuChild {
+	display: block;
+}
+
+.nav .active ul.child_menu {
+	display: block;
+}
+/* 
+footer{
+	bottom: 0;
+} */

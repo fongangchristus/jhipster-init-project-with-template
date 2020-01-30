@@ -1,0 +1,23 @@
+
+{
+    "pgwitgApp": {
+        "seqGen" : {
+            "home": {
+                "title": "Seq Gens",
+                "createLabel": "Create a new Seq Gen",
+                "createOrEditLabel": "Create or edit a Seq Gen"
+            },
+            "created": "A new Seq Gen is created with identifier {{ param }}",
+            "updated": "A Seq Gen is updated with identifier {{ param }}",
+            "deleted": "A Seq Gen is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Seq Gen {{ id }}?"
+            },
+            "detail": {
+                "title": "Seq Gen"
+            },
+            "code": "Code",
+            "nextid": "Nextid"
+        }
+    }
+}

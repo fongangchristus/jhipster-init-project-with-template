@@ -1,0 +1,55 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    
+    <changeSet author="p.djomga (generated)" id="1554914445795-2">
+        <createTable tableName="pgw_app_role_authority">
+            <column name="app_role_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="authority_name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="p.djomga (generated)" id="1554914445795-3">
+        <addColumn tableName="pgw_role_app">
+            <column name="created_by" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="p.djomga (generated)" id="1554914445795-4">
+        <addColumn tableName="pgw_role_app">
+            <column name="created_date" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="p.djomga (generated)" id="1554914445795-5">
+        <addColumn tableName="pgw_role_app">
+            <column name="last_modified_by" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="p.djomga (generated)" id="1554914445795-6">
+        <addColumn tableName="pgw_role_app">
+            <column name="last_modified_date" type="timestamp"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="p.djomga (generated)" id="1554914445795-7">
+        <addColumn tableName="jhi_user">
+            <column name="roles_id" type="int8"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="p.djomga (generated)" id="1554914445795-8">
+        <addPrimaryKey columnNames="app_role_id, authority_name" tableName="pgw_app_role_authority"/>
+    </changeSet>
+    <changeSet author="p.djomga (generated)" id="1554914445795-9">
+        <addForeignKeyConstraint baseColumnNames="roles_id" baseTableName="jhi_user" constraintName="FKh11dsr7wh7l7acqtgju3x8w5h" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="pgw_role_app"/>
+    </changeSet>
+    <changeSet author="p.djomga (generated)" id="1554914445795-10">
+        <addForeignKeyConstraint baseColumnNames="authority_name" baseTableName="pgw_app_role_authority" constraintName="FKk4jbsadv5g73k74di0hx85dn5" deferrable="false" initiallyDeferred="false" referencedColumnNames="name" referencedTableName="jhi_authority"/>
+    </changeSet>
+    <changeSet author="p.djomga (generated)" id="1554914445795-11">
+        <addForeignKeyConstraint baseColumnNames="app_role_id" baseTableName="pgw_app_role_authority" constraintName="FKl6a80uofiaf63sumdp3e211ad" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="pgw_role_app"/>
+    </changeSet>
+</databaseChangeLog>

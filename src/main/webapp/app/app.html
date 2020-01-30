@@ -1,0 +1,36 @@
+<div class="container body">
+    <toaster-container toaster-options="{'time-out': 5000, 'close-button': true, 'position-class': 'toast-top-right'}"></toaster-container>
+	<div class="main_container">
+		<div class="col-md-3 left_col">
+			<div ui-view="sidebar" ng-cloak class="left_col scroll-view"></div>
+		</div>
+
+		<!-- top navigation -->
+		<div class="top_nav">
+			<div class="nav_menu" ui-view="navbar"></div>
+		</div>
+		<!-- /top navigation -->
+
+		<!-- page content -->
+		<div class="right_col scroll-view" role="main">
+			<div ui-view="content">
+				<!-- Angular views -->
+			</div>
+            <div  style="position: fixed; left: 0; bottom: 0; width: 100%; padding: 8px 30px 8px; background-color: #2A3F54; margin-right: 10px">
+                <div class="pull-right" style="color: #9acfea">
+                    Payment gateway by <a href="http://www.itgstore-consulting.com">ITGStore</a>
+                </div>
+            </div>
+		</div>
+		<!-- /page content -->
+
+		<!-- footer content -->
+        <!--<footer>
+
+            <div class="clearfix"></div>
+        </footer>-->
+
+
+		<!-- /footer content -->
+	</div>
+</div>

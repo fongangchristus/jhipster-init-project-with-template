@@ -1,0 +1,138 @@
+entity PgwTxBloc {
+    code String,
+    command String,
+    token String,
+    end_user String,
+    libelle String required,
+    request String,
+    statut PgwTxStatus required,
+    tx_date Instant required,
+    montant Double
+}
+
+entity PgwTxBlocHistory {
+    code String,
+    command String,
+    token String,
+    end_user String,
+    libelle String required,
+    request String,
+    statut PgwTxStatus required,
+    tx_date Instant required,
+    montant Double
+}
+
+entity PgwTxItem {
+    code String,
+    command String,
+    token String,
+    end_user String,
+    libelle String required,
+    request String,
+    statut PgwTxStatus required,
+    tx_date Instant required,
+    montant Double
+}
+
+entity PgwTxItemHistory {
+    code String,
+    command String,
+    token String,
+    end_user String,
+    libelle String required,
+    request String,
+    statut PgwTxStatus,
+    tx_date Instant required,
+    montant Double
+}
+
+entity PgwPortal {
+	public_key String required,
+    private_key String required,
+    libelle String required,    
+    is_actif Boolean,
+    url String required
+}
+
+entity PgwProduct {
+	code String required,
+    libelle String required,
+    prix Double required,
+    is_actif Boolean,
+    info1 String,
+    info2 String,
+    info3 String,
+    info4 String
+}
+
+entity PgwProductCategory {
+	code String ,
+    libelle String required,
+    is_actif Boolean,
+    info1 String
+}
+
+entity PgwPayMode {
+	code String required,
+    libelle String required,
+    is_actif Boolean
+}
+
+entity PgwPayModeMatch {
+	code String 
+    is_actif Boolean
+}
+
+entity PgwPayServiceFacade {
+	code String required,
+	url String required,
+    is_actif Boolean
+}
+
+entity PgwProvServiceFacade {
+	code String required,
+	url String required,
+    is_actif Boolean
+}
+
+enum PgwTxStatus {
+	INITIATED,
+    IN_PROGRESS,
+    PAID,
+    NOT_PAID,
+    PROVISIONNED,
+    NOT_PROVISIONNED,
+    VALIDATED,
+    CANCELLED
+}
+
+
+relationship ManyToOne {
+  PgwTxItemHistory{txItem(libelle)} to PgwTxItem,
+  PgwTxBlocHistory{txBloc(libelle)} to PgwTxBloc,
+  PgwTxBloc{portal(libelle)} to PgwPortal,
+  PgwTxBloc{payMode(libelle)} to PgwPayMode,
+  PgwTxItem{payMode(libelle)} to PgwPayMode,
+  PgwTxItem{portal(libelle)} to PgwPortal,
+  PgwTxItem{product(libelle)} to PgwProduct,  
+  PgwPayMode{payService(code)} to PgwPayServiceFacade,
+  PgwPayModeMatch{portal(libelle)} to PgwPortal,
+  PgwPayModeMatch{payMode(libelle)} to PgwPayMode,
+  PgwPayModeMatch{product(libelle)} to PgwProduct,
+  PgwProduct{category(libelle)} to PgwProductCategory,
+  PgwProduct{provService(code)} to PgwProvServiceFacade
+}
+
+
+
+// Set pagination options
+paginate all with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceClass 
+
+// filter
+filter all
+

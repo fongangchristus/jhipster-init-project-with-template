@@ -1,0 +1,115 @@
+.main-body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    /*padding-right: 15px;
+    padding-left: 15px;*/
+    margin-right: auto;
+    margin-left: auto;
+}
+
+div.contenu {
+
+    /* Location of the image
+    background-image: url(../images/computer-2049167_960_720.jpg);*/
+
+    /* Background image is centered vertically and horizontally at all times
+    background-position: center center;*/
+
+    /* Background image doesn't tile
+    background-repeat: no-repeat;*/
+
+    /* Background image is fixed in the viewport so that it doesn't move when
+       the content's height is greater than the image's height
+    background-attachment: fixed;*/
+
+    /* This is what makes the background image rescale based
+       on the container's size
+    background-size: cover;*/
+
+    /* Set a background color that will be displayed
+       while the background image is loading
+    background-color: #464646;*/
+    background-color: #F0F0F0;
+    height: 100%;
+    width: 100%;
+}
+
+.form-login {
+    -moz-box-shadow: 0px 2px 18px #455a99;
+    -webkit-box-shadow: 0px 2px 18px #455a99;
+    box-shadow: 0px 2px 18px #455a99;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.form-login-header {
+    margin-bottom: 5px;
+    text-align: center;
+    color: rgba(20,14,31,0.82);
+}
+
+div[ng-view].ng-enter {
+    -webkit-animation: fadeInUp 1.5s;
+    animation: fadeInUp 1.5s;
+}
+
+#toast-container {
+    position: fixed;
+    z-index: 999999;
+    /*overrides*/
+    bottom: 10px;
+}
+
+.marchand-detail-padding {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+/*######################################################*/
+
+dl {
+    border: 1px solid #bdc8ca;
+    background-color: #f7fafa;
+}
+.ie7 dl {
+    overflow: hidden;
+}
+dt,
+dd {
+    box-sizing: border-box;
+    padding: 10px;
+}
+dd ~ dt,
+dd ~ dd {
+    border-top: 1px solid #bdc8ca;
+}
+dt {
+    float: left;
+    width: 40%;
+    padding-bottom: 0;
+}
+.ie7 dt {
+    padding-bottom: 10px;
+    clear: both;
+}
+dd {
+    margin-left: 35%;
+    border-left: 1px dotted #bdc8ca;
+    background-color: #fff;
+}
+.ie7 dd {
+    margin-left: 40%;
+    overflow: hidden;
+}
+dd:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+
