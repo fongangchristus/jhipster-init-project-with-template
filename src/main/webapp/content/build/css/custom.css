@@ -167,7 +167,7 @@ html, body {
 }
 
 .left_col {
-	background: #2A3F54;
+	background: #101b33;
     height: 100%;
 }
 
@@ -439,7 +439,7 @@ body .container.body .right_col {
 .nav_title {
 	width: 230px;
 	float: left;
-	background: #2a3f54;
+	background: #101B33;
 	border-radius: 0;
 	height: 57px
 }
@@ -755,7 +755,7 @@ a:hover, a:focus {
 
 .navbar {
 	margin-bottom: 0;
-	background-color: #337ab7;
+	background-color: #4680ff;
 }
 
 .navbar-header {
@@ -836,7 +836,7 @@ a:hover, a:focus {
 }
 
 .nav.child_menu li:hover, .nav.child_menu li.active {
-	background-color: #337ab7
+	background-color: #4680ff
     /*background-color: rgba(255, 255, 255, 0.06)*/
 }
 
@@ -890,9 +890,9 @@ a:hover, a:focus {
 	padding: 13px 15px 12px
 }
 
-.nav.side-menu>li.current-page, .nav.side-menu>li.active {
-	border-right: 5px solid #31708f
-}
+/*.nav.side-menu>li.current-page, .nav.side-menu>li.active {
+	border-right: 5px solid #4680ff
+}*/
 
 .nav li.current-page {
 	background: rgba(255, 255, 255, 0.05)
@@ -909,9 +909,16 @@ a:hover, a:focus {
 .nav.side-menu>li.active>a {
 	text-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0;
 	/*background: linear-gradient(#334556, #2C4257), #2A3F54;*/
-	background: linear-gradient(#31708f, #2C4257), #31708f;
-	box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16)
-		0 1px 0
+	background: #4680ff ! important;
+    color: #fff !important;
+    box-shadow: 0 10px 5px -8px rgba(0,0,0,.4);
+    border-radius: .25rem;
+    margin-left: 5px;
+    margin-right: 5px;
+
+
+    /*box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16)
+		0 1px 0*/
 }
 
 .navbar-brand, .navbar-nav>li>a {
@@ -1265,9 +1272,23 @@ h2 {
 }
 
 .x_title .btn.btn-add{
-	background-color: #337ab7;
+	background-color: #4680ff;
 	color: #FFFFFF
 }
+.btn-primary {
+    color: #fff;
+    background-color: #4680ff;
+    border-color: #4680ff;
+}
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #4680ff ;
+    border-color: #337ab7;
+}
+
+
 
 .x_title .btn.btn-add span{
 	color: #FFFFFF
